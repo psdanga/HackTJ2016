@@ -12,7 +12,8 @@
             var transferGlobal = null;
             var apikey = 'fa2d7ebd545f8d74e2b5072c34b0eeab';
             var accountId = sessionStorage.getItem('accountId');
-
+            var emailToID = {"johndoe@fakemail.com":"56284d5834a5e61f579dee3c", "bobjones@fakemail.com":"56284d5834a5e61f579dee3c",
+                             "sarahsmith@fakemail.com":"56284d5834a5e61f579dee3c", "jessicajones@fakemail.com":"56284d5834a5e61f579dee3c"};
             function onLoad(){
                 require(['account', 'atm', 'branch', 'customer', 'deposit', 'withdrawal', 'bills', 'merchant', 'purchase'], function (account, atm, branch, customer, withdrawal, bills, merchant, purchase, transfer) {
                     accountGlobal = account;
