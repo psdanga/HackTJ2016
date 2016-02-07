@@ -46,6 +46,16 @@ function deposit (apikey, deposit) {
 	// console.log("[Deposit - Delete Deposit]: " + depositAccount.deleteDeposit('56007939ce1cef140015e48a'));
 	}
 
+function transfer (apikey, transfer) {
+	console.log('transfer');
+	var transfer.account = transfer.initWithKey(apikey);
+	var senderID = '0'; //replace
+	var receiverID = '0'; //replace
+	var transfer = "{\"medium\": \"balance\", \"amount\": 1000,\"description\": \"test\"}";
+	//debit sender
+	//credit receiver
+	//requires things that I do not yet understand
+}
 function withdrawal (apikey, withdrawal) {
 	console.log('withdrawal');
 	var withdrawalAccount = withdrawal.initWithKey(apikey);
