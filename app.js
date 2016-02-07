@@ -19,18 +19,12 @@ function account (account) {
 	//console.log("[Account - Deleting an Account] : Response code: " + custAccount.deleteAccount(accID)); // Uncomment with cautious.
 		}
 
-function customer (customer) {
+function getCustomer (custID) {
 	var customerAccount = customer.initWithKey(apikey);
-	var custID = '55e94a6af8d8770528e60e64'; //to be changed
-	var accID = '560072e0ce1cef140015e483'; //to be changed
-	console.log("[Customer - Get All Customers] : Sample Customer: " + customerAccount.getCustomers()[0].first_name);
-	console.log("[Customer - Get Customer By Customer ID] : Sample Customer: " + customerAccount.getCustomerById(custID).first_name);
-	console.log("[Customer - Get Customer By Account ID] : Sample Customer: " + customerAccount.getCustomerByAcountId(accID));
-	var customerInfo = "{\"address\": {\"street_number\": \"8020\",\"street_name\": \"Greenroad Dr\",\"city\": \"McLean\",\"state\": \"VA\",\"zip\": \"22102\"}}";
-	console.log("[Customer - Update Customer] :" + customerAccount.updateCustomer(custID, customerInfo));
-		}
+	return customerAccount.getCustomerById(custID);
+}
 
-function deposit (deposit) {
+function depositFunds (amount) {
 	console.log('Deposit');
 	var depositAccount = deposit.initWithKey(apikey);
 	var accID = '560072e0ce1cef140015e483'; //to be changed
@@ -38,12 +32,7 @@ function deposit (deposit) {
 	var deposit = "{\"medium\": \"balance\",\"amount\": 100000,\"description\": \"test\"}";
 	var depositUpdate = "{\"medium\": \"balance\",\"amount\": 205000,\"description\": \"test\"}";
 
-	console.log("[Deposit - Get All By AccountId]: " + depositAccount.getAllByAccountId(accID));
-	console.log("[Deposit - Deposit by DepositID]: " + depositAccount.getDepositById(depID));
 	console.log("[Deposit - New deposit]: " + depositAccount.createDeposit(accID, deposit));
-	var lastDesposit = depositAccount.getAllByAccountId(accID).pop();
-	// console.log("[Deposit - Update Deposit]: " + depositAccount.updateDeposit(lastDesposit._id, sampleDepositUpdate)); //API failed - "NetworkError: 404 Not Found
-	// console.log("[Deposit - Delete Deposit]: " + depositAccount.deleteDeposit('56007939ce1cef140015e48a'));
 	}
 
 function transfer (transfer) {
