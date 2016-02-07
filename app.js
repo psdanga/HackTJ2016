@@ -22,7 +22,7 @@ function deposit_funds (accID, amount) {
 function transfer_funds (senderId, receiverID, amount) {
 	console.log('transfer');
 	var transfer.account = transfer.initWithKey(apikey);
-	var transfer = "{\"medium\": \"balance\", \"amount\": " + amount + ",\"description\": \"test\"}";
+	var transfer = "{\"medium\": \"balance\", \"amount\": " + amount + ",\"description\": \"transfer\"}";
 	//debit sender
 	//credit receiver
 	//requires things that I do not yet understand
@@ -30,7 +30,7 @@ function transfer_funds (senderId, receiverID, amount) {
 function withdraw_funds (accID, amount) {
 	console.log('withdrawal');
 	var withdrawalAccount = withdrawal.initWithKey(apikey);
-	var withdrawal = "{\"medium\": \"balance\",\"amount\": " + amount + ",\"description\": \"test\"}";
+	var withdrawal = "{\"medium\": \"balance\",\"amount\": " + amount + ",\"description\": \"withdrawal\"}";
 	var withdrawalUpdate = withdrawalAccount.createWithdrawal(accID, withdrawal));
 }
 
