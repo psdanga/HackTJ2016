@@ -1,10 +1,5 @@
 <script data-main="lib/capital_one" src="lib/require-jquery.js"></script>
-$(function(){
-    require(['account'], function (account) {
-        var apikey = '0bff2c40bb1c982db456e6f2ef4bbc58';
-        accountDemo(apikey, account);
-        });
-});
+var apikey = '0bff2c40bb1c982db456e6f2ef4bbc58';
 
 // Methods go here
 function account (apikey, account) {
@@ -42,7 +37,7 @@ function deposit (apikey, deposit) {
 	var depID = '56007773ce1cef140015e487'; //to be changed
 	var deposit = "{\"medium\": \"balance\",\"amount\": 100000,\"description\": \"test\"}";
 	var depositUpdate = "{\"medium\": \"balance\",\"amount\": 205000,\"description\": \"test\"}";
-			
+
 	console.log("[Deposit - Get All By AccountId]: " + depositAccount.getAllByAccountId(accID));
 	console.log("[Deposit - Deposit by DepositID]: " + depositAccount.getDepositById(depID));
 	console.log("[Deposit - New deposit]: " + depositAccount.createDeposit(accID, deposit));
@@ -58,19 +53,34 @@ function withdrawal (apikey, withdrawal) {
 	var withdrawalID = '5601901fce1cef140015e4a3'; //replace
 	var withdrawal = "{\"medium\": \"balance\",\"amount\": 1000,\"description\": \"test\"}";
 	var withdrawUpdate = '{ "medium": "balance", "amount": 52000, "description": "update" }';
-			
+
 	console.log("[withdrawal - withdraw an account] Response: "+ withdrawalAccount.createWithdrawal(accID, sampleWithdrawal));
 	console.log("[withdrawal - get withdrawals by account] Response: "+ withdrawalAccount.getAllByAccountId(accID));
 	console.log("[withdrawal - get withdrawals by id] Response: " + withdrawalAccount.getWithdrawalById(withdrawalID));
 	console.log("[withdrawal - create withdrawal] Response: " + withdrawalAccount.createWithdrawal(accID, withdrawal));
-	
+
 	var lastAcct = withdrawalAccount.getAllByAccountId(accID).pop();
 	console.log("[withdrawal - update withdrawal] Response: " + withdrawalAccount.updateWithdrawalById(lastAcct._id, withdrawUpdate));
 	//console.log("[withdrawal - delete withdrawal] Response: " + withdrawalAccount.deleteWithdrawals('56019011ce1cef140015e4a1'));
 	}
 
-
-
+var customer_table = {
+  "johndoe@fakemail.com" : {"apple" : "ID"},
+  "bobjones@fakemail.com" : {"banana" : "ID"},
+  "sarahsmith@fakemail.com" : {"cucumber" : "ID"},
+  "jessicajones@fakemail.com" : {"donaldtrump" : "ID"}
+}
+function fetchID(email, pass)
+{
+  if(customer_table[email].hasOwnProperty(pass))
+  {
+    return customer_table[email][pass];
+  }
+}
+function fetchBalance(customerID)
+{
+  var person = customer()
+}
 
 
 //
