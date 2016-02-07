@@ -46,15 +46,19 @@ function deposit (deposit) {
 	// console.log("[Deposit - Delete Deposit]: " + depositAccount.deleteDeposit('56007939ce1cef140015e48a'));
 	}
 
-function transfer (transfer) {
+function transfer (apikey, transfer) {
 	console.log('transfer');
 	var transfer.account = transfer.initWithKey(apikey);
 	var senderID = '0'; //replace
 	var receiverID = '0'; //replace
-	var transfer = "{\"medium\": \"balance\", \"amount\": 1000,\"description\": \"test\"}";
-	//debit sender
-	//credit receiver
-	//requires things that I do not yet understand
+	var transfer = "{"medium\": \"balance\",
+  \"payee_id\": \"56284d5834a5e61f579dee3d\",
+  \"amount\": 10,
+  \"transaction_date\": \"2016-02-07\",
+  \"status\": \"pending\",
+  \"description\": \"string\"
+	}";
+	
 }
 function withdrawal (withdrawal) {
 	console.log('withdrawal');
