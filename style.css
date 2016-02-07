@@ -1,11 +1,13 @@
 body {
-    background-color: lightgrey;
+    background-color: lightblue;
+    padding: 150px;
 }
 
 h1 {
     color: blue;
+    font: sans-serif;
 }
 
 p {
-    color:green;
+    color: green;
 }

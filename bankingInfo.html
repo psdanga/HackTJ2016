@@ -9,7 +9,7 @@
 	    <script>
 	    	var accountGlobal = null;
 	    	var customerGlobal = null;
-		    var apikey = 'fa2d7ebd545f8d74e2b5072c34b0eeab';
+		    var apikey = 'ce54821bd2395dc118a0c9f456df05c4';
 		    var accountId = sessionStorage.getItem('accountId');
 
 		    function onLoad(){
@@ -31,6 +31,9 @@
 	    	}
 	    	function transfer(){
 	    		window.location.href="transfer.html";
+	    	}
+	    	function logout(){
+	    		window.location.href="main.html";
 	    	}
 
 			// Methods go here
@@ -59,17 +62,19 @@
     </head>
 	<body onload = onLoad();>
 		<header>
-            <center>
+            <!--center>
                 <font size="50">
                     Capital One Banking
                 </font>
-            </center>
+            </center-->
         </header>
         <center>
+        	<img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Capital_One_Logo.png"></img>
             <p id="balance">Current Account Balance: </p></br>
             <button onclick = withdraw(); accesskey="w" id="withdraw">Withdraw</button>
             <button onclick = deposit(); accesskey="d" id="deposit">Deposit</button>
-            <button onclick = transfer(); accesskey="t" id="transfer">Transfer</button>
+            <!--button onclick = transfer(); accesskey="t" id="transfer">Transfer</button-->
+            <button onclick = logout(); accesskey="lo" id="logout">Log Out</button>
         </center>
 	</body>
 </html>

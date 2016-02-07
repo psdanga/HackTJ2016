@@ -7,10 +7,8 @@
 	    </title>
 	    <script type="text/javascript">
 	    	var customer_table = {
-			  "johndoe@fakemail.com" : {"apple" : "56284d5834a5e61f579dee3c"},
-			  "bobjones@fakemail.com" : {"banana" : "56284d5834a5e61f579dee3c"},
-			  "sarahsmith@fakemail.com" : {"cucumber" : "56284d5834a5e61f579dee3c"},
-			  "jessicajones@fakemail.com" : {"donaldtrump" : "56284d5834a5e61f579dee3c"}
+			  "johndoe@fakemail.com" : {"apple" : "56241a14de4bf40b17112faa"},
+			  "jessicajones@fakemail.com" : {"donaldtrump" : "56241a14de4bf40b17112fac"}
 			};
 	    	var email = "";
 	    	var password = "";
@@ -20,6 +18,7 @@
 	    		if(customer_table[email][password])
 	    		{
 	    			sessionStorage.setItem('accountId', customer_table[email][password]);
+	    			//console.log(customer_table[email][password]);
 	    			window.location.href="bankingInfo.html";
 	    		}
 	    	}
@@ -34,13 +33,14 @@
             </center-->
         </header>
         <center>
-        	<img src="https://media.cofstatic.com/assets/rwd/img/logo/option-2-btn.png" width="200" height="80"></img>
+        	<img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Capital_One_Logo.png"></img>
         	<p> Secure Login </p>
             <input type="text" size="50" id="email" placeholder = "Enter Email Here"></input>
             <br>
             <input type="password" size="50" id="password" onkeydown = "Javascript: if(event.keyCode==13) submit();" placeholder = "Enter Password Here"></input>
             <br>
-            <button onclick = submit(); accesskey="return" id="submitButton">Submit</button>
+            <br>
+            <button onclick = submit(); accesskey="return" id="submitButton">Log In</button>
         </center>
 	</body>
 </html>
