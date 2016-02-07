@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
 	    <title>
 	         Capital One Banking: Withdrawal
 	    </title>
@@ -29,6 +30,8 @@
 
             function submit(){
                 withdraw_funds(accountId, document.getElementById('amount').value);
+                window.alert("You've withdrawn $"+document.getElementById('amount').value+".");
+                window.location.href="bankingInfo.html";
             }
 
             function home(){

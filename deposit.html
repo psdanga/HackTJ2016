@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
 	    <title>
 	         Capital One Banking: Deposit
 	    </title>
@@ -28,6 +29,8 @@
             }
             function submit(){
                 deposit_funds(accountId, document.getElementById('amount').value);
+                window.alert("You've deposited $"+document.getElementById('amount').value+".");
+                window.location.href="bankingInfo.html";
             }
 
             function home(){
