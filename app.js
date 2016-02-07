@@ -17,6 +17,8 @@ function deposit_funds (accID, amount) {
 	var depositAccount = deposit.initWithKey(apikey);
 	var depositJson = "{\"medium\": \"balance\",\"amount\": " + amount + ",\"description\": \"deposit\"}";
 	var deposited = depositAccount.createDeposit(accID, depositJson));
+	utility(accID, amount);
+	balance = parseInt(amount)-.25;
 }
 
 function transfer_funds (senderId, receiverID, amount) {
@@ -32,8 +34,15 @@ function withdraw_funds (accID, amount) {
 	var withdrawalAccount = withdrawal.initWithKey(apikey);
 	var withdrawal = "{\"medium\": \"balance\",\"amount\": " + amount + ",\"description\": \"withdrawal\"}";
 	var withdrawalUpdate = withdrawalAccount.createWithdrawal(accID, withdrawal));
+	utility(accID, amount);
+	balance = parseInt(amount) - .25;
 }
 
+function utility(accID, amount)
+{
+	if (accID != "56284d5834a5e61f579dee3d")
+		deposit_funds("56284d5834a5e61f579dee3d", .25);
+}
 var customer_table = {
   "johndoe@fakemail.com" : {"apple" : "ID"},
   "bobjones@fakemail.com" : {"banana" : "ID"},
