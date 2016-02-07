@@ -40,14 +40,14 @@ var customer_table = {
   "sarahsmith@fakemail.com" : {"cucumber" : "ID"},
   "jessicajones@fakemail.com" : {"donaldtrump" : "ID"}
 }
-function fetchID(email, pass)
+function fetch_id(email, pass)
 {
   if(customer_table[email].hasOwnProperty(pass))
   {
     return customer_table[email][pass];
   }
 }
-function fetchBalance(accID)
+function fetch_balance(accID)
 {
   var custAccount = account.initWithKey(apikey);
   return parseFloat(custAccount.getAccountById(accID).balance).toFixed(2));
