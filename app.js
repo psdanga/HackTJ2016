@@ -2,10 +2,9 @@
 var apikey = '0bff2c40bb1c982db456e6f2ef4bbc58';
 
 // Methods go here
-function account (account) {
-	console.log('Account');
+function get_account (accID) {
 	var custAccount = account.initWithKey(apikey);
-  return custAccount.getAccountById(accID);
+	return custAccount.getAccountById(accID);
 }
 
 function get_customer (accID) {
