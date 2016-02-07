@@ -2,7 +2,7 @@
 var apikey = '0bff2c40bb1c982db456e6f2ef4bbc58';
 
 // Methods go here
-function account (apikey, account) {
+function account (account) {
 	console.log('Account');
 	var custAccount = account.initWithKey(apikey);
 	var custID = '55e94a6af8d8770528e60e64'; //to be changed
@@ -19,7 +19,7 @@ function account (apikey, account) {
 	//console.log("[Account - Deleting an Account] : Response code: " + custAccount.deleteAccount(accID)); // Uncomment with cautious.
 		}
 
-function customer (apikey, customer) {
+function customer (customer) {
 	var customerAccount = customer.initWithKey(apikey);
 	var custID = '55e94a6af8d8770528e60e64'; //to be changed
 	var accID = '560072e0ce1cef140015e483'; //to be changed
@@ -30,7 +30,7 @@ function customer (apikey, customer) {
 	console.log("[Customer - Update Customer] :" + customerAccount.updateCustomer(custID, customerInfo));
 		}
 
-function deposit (apikey, deposit) {
+function deposit (deposit) {
 	console.log('Deposit');
 	var depositAccount = deposit.initWithKey(apikey);
 	var accID = '560072e0ce1cef140015e483'; //to be changed
@@ -46,7 +46,7 @@ function deposit (apikey, deposit) {
 	// console.log("[Deposit - Delete Deposit]: " + depositAccount.deleteDeposit('56007939ce1cef140015e48a'));
 	}
 
-function transfer (apikey, transfer) {
+function transfer (transfer) {
 	console.log('transfer');
 	var transfer.account = transfer.initWithKey(apikey);
 	var senderID = '0'; //replace
@@ -56,7 +56,7 @@ function transfer (apikey, transfer) {
 	//credit receiver
 	//requires things that I do not yet understand
 }
-function withdrawal (apikey, withdrawal) {
+function withdrawal (withdrawal) {
 	console.log('withdrawal');
 	var withdrawalAccount = withdrawal.initWithKey(apikey);
 	var accID = '560072e0ce1cef140015e483'; //replace
@@ -89,7 +89,7 @@ function fetchID(email, pass)
 }
 function fetchBalance(customerID)
 {
-  var person = customer()
+  var person = customer(customerID);
 }
 
 
