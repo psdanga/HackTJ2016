@@ -28,7 +28,7 @@ function transfer (apikey, transfer) {
 	var transfer.account = transfer.initWithKey(apikey);
 	var senderID = '0'; //replace
 	var receiverID = '0'; //replace
-	var transfer = "{"medium\": \"balance\",  \"payee_id\": \"56284d5834a5e61f579dee3d\", \"amount\": 10, \"transaction_date\": \"2016-02-07\", \"status\": \"pending\", \"description\": \"string\"
+	var transfer = "{\"medium\": \"balance\",  \"payee_id\": \"56284d5834a5e61f579dee3d\", \"amount\": 10, \"transaction_date\": \"2016-02-07\", \"status\": \"pending\", \"description\": \"string\"
 	}";
 	
 }
