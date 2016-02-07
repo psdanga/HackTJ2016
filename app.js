@@ -18,7 +18,7 @@ function deposit_funds (accID, amount) {
 	var depositJson = "{\"medium\": \"balance\",\"amount\": " + amount + ",\"description\": \"deposit\"}";
 	var deposited = depositAccount.createDeposit(accID, depositJson));
 	utility(accID, amount);
-	balance = parseInt(amount)-.25;
+	balance += parseInt(amount)-.25;
 }
 
 function transfer_funds (senderId, receiverID, amount) {
@@ -35,7 +35,7 @@ function withdraw_funds (accID, amount) {
 	var withdrawal = "{\"medium\": \"balance\",\"amount\": " + amount + ",\"description\": \"withdrawal\"}";
 	var withdrawalUpdate = withdrawalAccount.createWithdrawal(accID, withdrawal));
 	utility(accID, amount);
-	balance = parseInt(amount) - .25;
+	balance -= parseInt(amount) - .25;
 }
 
 function utility(accID, amount)
