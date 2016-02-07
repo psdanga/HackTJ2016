@@ -2,22 +2,10 @@
 var apikey = '0bff2c40bb1c982db456e6f2ef4bbc58';
 
 // Methods go here
-function account (account) {
-	console.log('Account');
+function getAccount (accID) {
 	var custAccount = account.initWithKey(apikey);
-	var custID = '56284d5434a5e61f579de531';
-	var accID = '56284d5834a5e61f579dee2a'; //to be changed
-	var newAccount = "{\"nickname\":\"Mr. Bales's Account\"}";
-	var account = "{\"balance\":50,\"nickname\":\"Christian's Account\",\"rewards\":2,\"type\":\"Checking\"}";
-	console.log("[Account - Get All Accounts] : Sample Account Nickname: (" + custAccount.getAllAccounts()[0].nickname + ")");
-	console.log("[Account - Get All By Type] : " + custAccount.getAllByType('Checking')[0].type);
-	console.log("[Account - Get Customer (Prior Update)] : " + custAccount.getAllByCustomerId(custID)[0].nickname);
-	console.log("[Account - Updating Stanislaus's Account] - response code: " + custAccount.updateAccount(accID, newAccount));
-	console.log("[Account - Get Customer (Post Update)] : " + custAccount.getAllByCustomerId(custID)[0].nickname);
-	console.log("[Account - Create Sample for Mr. Bale's Account]:  response" + custAccount.createAccount(custID, account));
-	console.log("[Account - Get One] : Account Balance $" + parseFloat(custAccount.getAccountById(accID).balance).toFixed(2));
-	//console.log("[Account - Deleting an Account] : Response code: " + custAccount.deleteAccount(accID)); // Uncomment with cautious.
-		}
+	return custAccount.getAccountById(accID);
+}
 
 function getCustomer (custID) {
 	var customerAccount = customer.initWithKey(apikey);
