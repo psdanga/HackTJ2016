@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>
+	         Capital One Banking
+	    </title>
+	    <script type="text/javascript" data-main="lib/capital_one" src="lib/require-jquery.js"></script>
+	    <script>
+	    	var accountGlobal = null;
+	    	var customerGlobal = null;
+		    var apikey = 'fa2d7ebd545f8d74e2b5072c34b0eeab';
+		    var accountId = sessionStorage.getItem('accountId');
+
+		    function onLoad(){
+				require(['account', 'atm', 'branch', 'customer', 'deposit', 'withdrawal', 'bills', 'merchant', 'purchase'], function (account, atm, branch, customer, deposit, withdrawal, bills, merchant, purchase) {
+					accountGlobal = account;
+					customerGlobal = customer;
+					start();
+				});
+			};
+
+		    function start(){
+		    	document.getElementById('balance').innerHTML = "Current Account Balance: $"+fetch_balance(accountId);
+		    }
+	    	function withdraw(){
+	    		window.location.href="withdraw.html";
+	    	}
+	    	function deposit(){
+	    		window.location.href="deposit.html";
+	    	}
+	    	function transfer(){
+	    		window.location.href="transfer.html";
+	    	}
+
+			// Methods go here
+			function get_account (accID) {
+				var custAccount = accountGlobal.initWithKey(apikey);
+				return custAccount.getAccountById(accID);
+			}
+
+			function get_customer (accID) {
+				var customerAccount = customerGlobal.initWithKey(apikey);
+				return customerAccount.getCustomerByAccountId(acctID);
+			}
+			function fetch_id(email, pass)
+			{
+			  if(customer_table[email].hasOwnProperty(pass))
+			  {
+			    return customer_table[email][pass];
+			  }
+			}
+			function fetch_balance(accID)
+			{
+			  var custAccount = accountGlobal.initWithKey(apikey);
+			  return parseFloat((custAccount.getAccountById(accID).balance).toFixed(2));
+			}
+		</script>
+    </head>
+	<body onload = onLoad();>
+		<header>
+            <center>
+                <font size="50">
+                    Capital One Banking
+                </font>
+            </center>
+        </header>
+        <center>
+            <p id="balance">Current Account Balance: </p></br>
+            <button onclick = withdraw(); accesskey="w" id="withdraw">Withdraw</button>
+            <button onclick = deposit(); accesskey="d" id="deposit">Deposit</button>
+            <button onclick = transfer(); accesskey="t" id="transfer">Transfer</button>
+        </center>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>
+	         Capital One Banking: Transfer
+	    </title>
+	    <script type="text/javascript" data-main="lib/capital_one" src="lib/require-jquery.js"></script>
+        <script type="text/javascript" src="lib/transfer.js"></script>
+        <script>
+            var accountGlobal = null;
+            var customerGlobal = null;
+            var transferGlobal = null;
+            var apikey = 'fa2d7ebd545f8d74e2b5072c34b0eeab';
+            var accountId = sessionStorage.getItem('accountId');
+
+            function onLoad(){
+                require(['account', 'atm', 'branch', 'customer', 'deposit', 'withdrawal', 'bills', 'merchant', 'purchase'], function (account, atm, branch, customer, withdrawal, bills, merchant, purchase, transfer) {
+                    accountGlobal = account;
+                    customerGlobal = customer;
+                    transferGlobal = transfer;
+                });
+            };
+
+            function transfer_funds (accID, amount) {
+                var transferAccount = transferGlobal.initWithKey(apikey);
+                var transferJson = "{\"medium\": \"balance\",\"amount\": " + amount + ",\"description\": \"transfer\"}";
+                var transferred = transferAccount.createTransfer(accID, transferJson);
+            }
+            function submit(){
+                transfer_funds(accountId, document.getElementById('amount').value);
+            }
+
+            function home(){
+                window.location.href="bankingInfo.html";
+            }
+
+	    </script>
+    </head>
+	<body onload=onLoad();>
+		<header>
+            <center>
+                <font size="50">
+                    Capital One Banking
+                </font>
+            </center>
+        </header>
+        <center>
+            <input type="text" size="50" id="amount" placeholder = "Amount"></input>
+            <br>
+            <button onclick = submit(); accesskey="return" id="submitButton">Transfer</button>
+            <br>
+            <button onclick = home(); accesskey="return" id="returnButton">Home</button>
+        </center>
+	</body>
+</html>
